@@ -17,8 +17,9 @@ properties([
             def jobsss
 	    parallel{
 	            
-		paramss.each{jobsss = build job: "${it}", parameters: [[$class: 'StringParameterValue', name: "imageTag", 
+		paramss.each{j -> jobsss = build job: "${it}", parameters: [[$class: 'StringParameterValue', name: "imageTag", 
         	                        value: "${params.imageTag}"]], wait: true}
 	    }
+	    parallel jobsss
         }
 
