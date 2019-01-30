@@ -15,8 +15,10 @@ properties([
 
         stage('Build and push Docker images') {
             def jobsss
-            paramss.each{jobsss = build job: "${it}", parameters: [[$class: 'StringParameterValue', name: "imageTag", 
-                                value: "${params.imageTag}"]], wait: true}
-            parallel jobssss
+	    parallel{
+	            
+		paramss.each{jobsss = build job: "${it}", parameters: [[$class: 'StringParameterValue', name: "imageTag", 
+        	                        value: "${params.imageTag}"]], wait: true}
+	    }
         }
 
