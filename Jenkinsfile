@@ -6,6 +6,7 @@ String e2e_YAML = """ """
 String get = "${params.imageTagGET_}"
 String ui = "${params.imageTagUI_}"
 String db = "${params.imageTagDB_}"
+String post = "${params.imageTagPOST_}"
 
 properties([
     parameters([
@@ -43,6 +44,7 @@ node(label)
                 sh "helm upgrade --install --namespace testing --force e2e-testing-db ${pathTocodeget}/List-Helm-Charts/e2e-testing-db --set=deploy.version=v1,image.tag.db=${db}"
                 sh "helm upgrade --install --namespace testing --force e2e-testing-get ${pathTocodeget}/List-Helm-Charts/e2e-testing-get --set=deploy.version=v1,image.tag.get=${get}"
                 sh "helm upgrade --install --namespace testing --force e2e-testing-ui ${pathTocodeget}/List-Helm-Charts/e2e-testing-ui --set=deploy.version=v1,image.tag.ui=${ui}"
+		sh "helm upgrade --install --namespace testing --force e2e-testing-post ${pathTocodeget}/List-Helm-Charts/e2e-testing-post --set=deploy.version=v1,image.tag.post=${post}"
                 sh "kubectl get pods --namespace=testing"
             }
         }
