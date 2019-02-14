@@ -12,7 +12,7 @@ properties([
     parameters([
 	stringParam(
             defaultValue: '***', 
-            description: '', 
+            description: '***', 
             name: 'service')
     ])
 ])
