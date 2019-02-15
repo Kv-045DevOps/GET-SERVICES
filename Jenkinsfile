@@ -58,7 +58,7 @@ node(label)
 
 	stage ("Deploy"){
             
-		build(job: 'GitHub/Docker-Registry/test', parameters: [[$class: 'StringParameterValue', name:"imageTagGET_", value: "${params.imageTagGET_}"],
+		build(job: 'GitHub/Docker-Registry/master', parameters: [[$class: 'StringParameterValue', name:"imageTagGET_", value: "${params.imageTagGET_}"],
 		[$class: 'StringParameterValue', name:"imageTagUI_", value: "${params.imageTagUI_}"],
 		[$class: 'StringParameterValue', name:"imageTagDB_", value: "${params.imageTagDB_}"],
 		[$class: 'StringParameterValue', name:"imageTagPOST_", value: "${params.imageTagPOST_}"],
